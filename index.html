@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SafeNote South Africa — Community Awareness Platform</title>
+<meta name="description" content="SafeNote is a South African community awareness platform for anonymous incident reporting, hotspot mapping and NHW/CPF insights." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#081008;--bg2:#0d170d;--panel:#111d10;--panel2:#172617;
+  --line:rgba(125,171,138,.20);--line2:rgba(125,171,138,.36);
+  --text:#eef5ef;--muted:#a9bead;--soft:#6f8875;
+  --green:#7dab8a;--green2:#4a7c59;--gold:#d4a832;--orange:#e8904a;--red:#f07070;--blue:#6ab4d4;
+  --shadow:0 24px 80px rgba(0,0,0,.38);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,92%);margin:auto}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(8,16,8,.78);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line)
+}
+.nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{
+  width:42px;height:42px;border-radius:50%;border:1.5px solid var(--green);
+  display:grid;place-items:center;background:#132013;color:var(--green);
+  font:900 14px 'DM Mono',monospace;box-shadow:0 0 0 6px rgba(125,171,138,.05)
+}
+.word{font:900 24px 'Playfair Display',serif;letter-spacing:.2px}
+.word span{color:var(--green)}
+.nav-links{display:flex;gap:20px;align-items:center;color:var(--muted);font-size:13px;font-weight:600}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{padding:10px 14px;border:1px solid var(--line2);border-radius:999px;color:var(--green)}
+.mobile-menu{display:none}
+
+.hero{
+  min-height:100vh;display:flex;align-items:center;padding:130px 0 80px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(125,171,138,.18), transparent 34%),
+    radial-gradient(circle at 80% 45%, rgba(212,168,50,.12), transparent 32%),
+    linear-gradient(180deg,#081008 0%,#0d170d 65%,#081008 100%);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;opacity:.22;
+  background-image:
+    linear-gradient(rgba(125,171,138,.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125,171,138,.12) 1px, transparent 1px);
+  background-size:54px 54px;
+  mask-image:linear-gradient(to bottom, black, transparent 88%);
+}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;
+  border:1px solid var(--line);background:rgba(125,171,138,.07);
+  border-radius:999px;padding:8px 12px;color:var(--green);
+  font:500 10px 'DM Mono',monospace;letter-spacing:1.4px;text-transform:uppercase
+}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(125,171,138,.1)}
+h1{font:900 clamp(46px,7vw,82px)/.98 'Playfair Display',serif;margin:0;letter-spacing:-1px}
+.lead{font-size:20px;line-height:1.65;color:#c7d6ca;max-width:680px;margin:24px 0 30px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:52px;padding:0 22px;border-radius:14px;font-weight:800;border:1px solid var(--line2)
+}
+.btn.primary{background:var(--green);color:#071007;border-color:var(--green)}
+.btn.secondary{background:rgba(255,255,255,.02);color:var(--green)}
+.btn:hover{transform:translateY(-1px)}
+.trust-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px;color:var(--soft);font:500 11px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:1px}
+.map-card{
+  position:relative;min-height:560px;border:1px solid var(--line);background:linear-gradient(145deg,#101b10,#0b130b);
+  border-radius:28px;box-shadow:var(--shadow);overflow:hidden;padding:22px
+}
+.map-card:before{
+  content:"";position:absolute;inset:-30%;background:
+    radial-gradient(circle at 35% 30%, rgba(240,112,112,.36), transparent 12%),
+    radial-gradient(circle at 58% 52%, rgba(232,144,74,.30), transparent 10%),
+    radial-gradient(circle at 70% 68%, rgba(212,168,50,.25), transparent 12%),
+    radial-gradient(circle at 45% 74%, rgba(125,171,138,.20), transparent 14%);
+  filter:blur(22px);opacity:.8;animation:drift 9s ease-in-out infinite alternate
+}
+@keyframes drift{from{transform:translate(-2%,1%) scale(1)}to{transform:translate(3%,-2%) scale(1.04)}}
+.fake-map{position:absolute;inset:0;opacity:.36;background-image:
+  linear-gradient(rgba(125,171,138,.15) 1px, transparent 1px),
+  linear-gradient(90deg,rgba(125,171,138,.15) 1px, transparent 1px);
+  background-size:34px 34px;transform:rotate(-8deg) scale(1.18)
+}
+.phone-ui{position:relative;z-index:3;margin:auto;width:min(360px,100%);background:rgba(8,16,8,.78);border:1px solid var(--line2);border-radius:26px;padding:16px;box-shadow:0 18px 60px rgba(0,0,0,.45)}
+.phone-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px}
+.phone-title{font:900 20px 'Playfair Display',serif}.phone-title span{color:var(--green)}
+.live{font:500 9px 'DM Mono',monospace;color:var(--green);letter-spacing:1px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:16px;padding:14px}
+.stat b{display:block;font:900 28px 'Playfair Display',serif}.stat small{color:var(--muted);font:500 9px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:1px}
+.pin-list{display:grid;gap:10px}
+.pin{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:14px;padding:11px}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(240,112,112,.08)}.dot.o{background:var(--orange)}.dot.g{background:var(--green)}
+.pin strong{font-size:13px}.pin span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+
+section{padding:96px 0}
+.section-head{text-align:center;margin-bottom:46px}
+.kicker{font:500 10px 'DM Mono',monospace;color:var(--green);letter-spacing:1.8px;text-transform:uppercase;margin-bottom:12px}
+h2{font:900 clamp(34px,5vw,54px)/1.06 'Playfair Display',serif;margin:0}
+.section-head p{max-width:720px;margin:18px auto 0;color:var(--muted);font-size:17px;line-height:1.65}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center}
+.card{
+  background:linear-gradient(180deg,var(--panel),rgba(17,29,16,.72));
+  border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow)
+}
+.card .icon{width:44px;height:44px;border-radius:14px;background:rgba(125,171,138,.1);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:20px;color:var(--green);font-size:20px}
+.card h3{font:900 24px 'Playfair Display',serif;margin:0 0 12px}.card p{color:var(--muted);line-height:1.7;margin:0}
+.strip{background:linear-gradient(90deg,rgba(125,171,138,.09),rgba(212,168,50,.06));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lingo{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tag{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:999px;padding:10px 14px;color:#cbd8ce;font-size:13px;font-weight:700}
+
+.feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.feature{border:1px solid var(--line);border-radius:16px;padding:15px;background:rgba(255,255,255,.025)}
+.feature b{display:block;margin-bottom:4px}.feature span{color:var(--muted);font-size:13px;line-height:1.55}
+.privacy-box{border:1px solid rgba(125,171,138,.32);background:rgba(125,171,138,.06);border-radius:26px;padding:34px}
+.checks{display:grid;gap:14px;margin-top:22px}.check{display:flex;gap:12px;color:#d6e2d8}.check:before{content:"✓";color:var(--green);font-weight:900}
+
+.route-card{background:#0e180e;border:1px solid var(--line);border-radius:24px;padding:26px}
+.routes{display:grid;gap:12px;margin-top:20px}
+.route{display:flex;justify-content:space-between;gap:14px;border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:15px;padding:14px}
+.route code{font:500 12px 'DM Mono',monospace;color:var(--green)}.route span{color:var(--muted);font-size:13px;text-align:right}
+
+.final{padding:100px 0;text-align:center;background:
+  radial-gradient(circle at 50% 0%, rgba(125,171,138,.18), transparent 36%),
+  #081008}
+.final p{color:var(--muted);font-size:18px;line-height:1.7;max-width:720px;margin:18px auto 28px}
+.footer{border-top:1px solid var(--line);padding:28px 0;color:var(--soft);font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.footer a{color:var(--muted);margin-left:14px}
+
+@media(max-width:900px){
+  .nav-links{display:none}.mobile-menu{display:block;color:var(--green);font:700 12px 'DM Mono',monospace}
+  .hero-grid,.grid2{grid-template-columns:1fr}.hero{padding-top:110px}
+  .grid3,.feature-list{grid-template-columns:1fr}.map-card{min-height:500px}
+  .route{display:block}.route span{display:block;text-align:left;margin-top:8px}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top" aria-label="SafeNote home">
+      <div class="mark">SN</div>
+      <div class="word">Safe<span>Note</span></div>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#how">How it works</a>
+      <a href="#community">Community</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#access">Access</a>
+      <a class="nav-cta" href="/app">Open SafeNote</a>
+    </nav>
+    <div class="mobile-menu">MENU</div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="pulse"></span> South African Community Awareness</div>
+      <h1>Know what's happening in your community.</h1>
+      <p class="lead">SafeNote helps residents, Neighbourhood Watches and CPF structures build a clearer picture of local activity through anonymous reporting, hotspot mapping and community-generated awareness.</p>
+      <div class="ctas">
+        <a class="btn primary" href="/app">Report an Incident</a>
+        <a class="btn secondary" href="/nhw">Community Access</a>
+      </div>
+      <div class="trust-row">
+        <span>No panic button</span>
+        <span>No dispatch promises</span>
+        <span>Privacy-first design</span>
+      </div>
+    </div>
+    <div class="map-card" aria-label="SafeNote visual dashboard preview">
+      <div class="fake-map"></div>
+      <div class="phone-ui">
+        <div class="phone-top"><div class="phone-title">Safe<span>Note</span></div><div class="live">LIVE MAP</div></div>
+        <div class="stat-grid">
+          <div class="stat"><b>24h</b><small>Delayed public feed</small></div>
+          <div class="stat"><b>NHW</b><small>Verified access</small></div>
+        </div>
+        <div class="pin-list">
+          <div class="pin"><div class="dot"></div><div><strong>Hotspot awareness</strong><span>Mapped by area and incident type</span></div></div>
+          <div class="pin"><div class="dot o"></div><div><strong>Trend visibility</strong><span>See patterns without social media noise</span></div></div>
+          <div class="pin"><div class="dot g"></div><div><strong>Community reporting</strong><span>Public input. Structured data.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Simple by design</div>
+      <h2>One clear purpose.</h2>
+      <p>SafeNote is not an emergency response service. It is a community awareness platform designed to help people understand what is happening around them.</p>
+    </div>
+    <div class="grid3">
+      <div class="card"><div class="icon">1</div><h3>Report</h3><p>Residents anonymously report incidents occurring in their area without creating public profiles or sharing contact details.</p></div>
+      <div class="card"><div class="icon">2</div><h3>Map</h3><p>Reports are organised by incident type, time and area to create a clearer picture of community activity.</p></div>
+      <div class="card"><div class="icon">3</div><h3>Understand</h3><p>Verified community structures can view trends, heatmaps and summaries to support awareness and patrol planning.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="strip" id="community">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Built for local structures</div>
+      <h2>Made for South African communities.</h2>
+      <p>Designed around the way communities already work: residents, patrollers, Neighbourhood Watches, CPF structures and local safety groups.</p>
+    </div>
+    <div class="lingo">
+      <span class="tag">Neighbourhood Watch</span>
+      <span class="tag">CPF Structures</span>
+      <span class="tag">Community Patrollers</span>
+      <span class="tag">Residents Associations</span>
+      <span class="tag">Farm Watches</span>
+      <span class="tag">Community Safety Groups</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container grid2">
+    <div>
+      <div class="kicker">What can be reported?</div>
+      <h2>Community input becomes structured awareness.</h2>
+      <p style="color:var(--muted);line-height:1.75;font-size:17px">Instead of scattered WhatsApp messages and social media posts, SafeNote turns community observations into usable incident data.</p>
+    </div>
+    <div class="feature-list">
+      <div class="feature"><b>Violent Crime</b><span>Serious incidents and high-priority activity.</span></div>
+      <div class="feature"><b>Robbery & Theft</b><span>Hijacking, break-ins, theft and street crime.</span></div>
+      <div class="feature"><b>Suspicious Activity</b><span>Vehicles, persons, loitering and casing reports.</span></div>
+      <div class="feature"><b>Drug Activity</b><span>Separate intelligence layer for verified structures.</span></div>
+      <div class="feature"><b>Infrastructure Issues</b><span>Cable theft, water cuts, road blockages and related reports.</span></div>
+      <div class="feature"><b>Power Outages</b><span>Community-reported outage mapping and clusters.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="container grid2">
+    <div class="privacy-box">
+      <div class="kicker">Privacy-first</div>
+      <h2>Designed to reduce unnecessary personal data.</h2>
+      <div class="checks">
+        <div class="check">No names required for public incident reports.</div>
+        <div class="check">No public user profiles or reporter identities.</div>
+        <div class="check">Public data is delayed and designed for awareness, not response.</div>
+        <div class="check">Verified NHW/CPF access is separated from the public map.</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Clear boundaries matter.</h3>
+      <p>SafeNote does not replace SAPS, emergency services, armed response or official reporting channels. It helps communities create a shared picture of activity so local structures can make better-informed decisions.</p>
+    </div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="container grid2">
+    <div>
+      <div class="kicker">One roof architecture</div>
+      <h2>Public website, app, NHW portal and API under one domain.</h2>
+      <p style="color:var(--muted);line-height:1.75;font-size:17px">The public should only need to remember one address. Behind the scenes, routing keeps the platform organised without exposing unnecessary service URLs.</p>
+    </div>
+    <div class="route-card">
+      <h3 style="font:900 24px 'Playfair Display',serif;margin:0">Recommended routes</h3>
+      <div class="routes">
+        <div class="route"><code>/</code><span>Public SafeNote website</span></div>
+        <div class="route"><code>/app</code><span>Public reporting map</span></div>
+        <div class="route"><code>/nhw</code><span>NHW / CPF portal</span></div>
+        <div class="route"><code>/admin</code><span>Admin backend later</span></div>
+        <div class="route"><code>/api</code><span>Private backend routes proxied securely</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container">
+    <div class="kicker">By the community. For the community.</div>
+    <h2>Community safety starts with awareness.</h2>
+    <p>SafeNote gives South African communities a clearer, simpler way to understand local activity through anonymous reports, mapped trends and verified community access.</p>
+    <div class="ctas" style="justify-content:center">
+      <a class="btn primary" href="/app">Open SafeNote</a>
+      <a class="btn secondary" href="mailto:hello@safenote.co.za">Contact SafeNote</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© SafeNote South Africa. Community awareness platform.</div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/app">App</a>
+      <a href="/nhw">NHW Access</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

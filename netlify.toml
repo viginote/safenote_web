@@ -1,0 +1,37 @@
+# SafeNote Netlify routing
+# Replace the Render URL below with your actual Render service URL.
+# This keeps public traffic under safenote.co.za while the API/app can still run on Render.
+
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://YOUR-RENDER-SERVICE.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/app"
+  to = "https://YOUR-RENDER-SERVICE.onrender.com/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/app/*"
+  to = "https://YOUR-RENDER-SERVICE.onrender.com/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/nhw"
+  to = "https://YOUR-RENDER-SERVICE.onrender.com/nhw"
+  status = 200
+  force = true
+
+# Later, when admin portal is built:
+# [[redirects]]
+#   from = "/admin"
+#   to = "https://YOUR-RENDER-SERVICE.onrender.com/admin"
+#   status = 200
+#   force = true
