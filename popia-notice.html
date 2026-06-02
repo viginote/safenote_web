@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>POPIA Notice — SafeNote</title>
+<meta name="description" content="SafeNote’s working POPIA-aligned notice for limited incident and location data processing." />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#081008;--panel:#111d10;--line:rgba(125,171,138,.22);--text:#eef5ef;--muted:#b8c9bb;--green:#7dab8a;--red:#f07070;--gold:#d4a832}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.75}
+main{width:min(940px,92%);margin:0 auto;padding:54px 0 80px}
+a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}
+.back{font:700 12px 'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase}
+h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.1}h1{font-size:clamp(42px,6vw,68px);margin:22px 0 12px}h2{font-size:32px;margin:42px 0 14px}h3{font-size:23px;margin:28px 0 10px}
+p,li{color:var(--muted);font-size:16px}strong{color:var(--text)}ul{padding-left:24px}
+.notice{border:1px solid rgba(212,168,50,.35);background:rgba(212,168,50,.07);border-radius:18px;padding:18px 20px;margin:22px 0;color:#e8d6a0}
+.danger{border-color:rgba(240,112,112,.35);background:rgba(240,112,112,.06)}
+.card{border:1px solid var(--line);background:var(--panel);border-radius:20px;padding:24px;margin:20px 0}
+.code{font:600 13px 'DM Mono',monospace;color:var(--green)}
+.footer{border-top:1px solid var(--line);margin-top:50px;padding-top:20px;color:#77907c;font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="/">← Back to SafeNote</a>
+<h1>POPIA Notice</h1>
+<p>SafeNote’s working POPIA-aligned notice for limited incident and location data processing.</p>
+<div class="notice"><strong>Important:</strong> These documents are operational legal templates for the SafeNote platform and should be reviewed by a South African legal professional before full public rollout.</div>
+
+<h2>1. POPIA Context</h2>
+<p>The Protection of Personal Information Act, 2013 (POPIA) promotes the protection of personal information processed by public and private bodies and introduces conditions for lawful processing.</p>
+
+<h2>2. SafeNote Processing Purpose</h2>
+<p>SafeNote processes limited incident and location information for community awareness, hotspot mapping, trend analysis, abuse prevention, NHW/CPF insight and platform administration.</p>
+
+<h2>3. Data Elements</h2>
+<div class="card">
+<p><strong>Public reports may include:</strong></p>
+<ul>
+<li>Incident type</li>
+<li>Severity</li>
+<li>Timestamp</li>
+<li>Location coordinates</li>
+<li>Optional short note</li>
+<li>Hashed technical anti-abuse information</li>
+</ul>
+</div>
+
+<h2>4. Data Minimisation</h2>
+<p>SafeNote is designed not to require names, phone numbers, ID numbers, emails or public profiles for public incident reports.</p>
+
+<h2>5. Special Personal Information</h2>
+<p>Users must avoid submitting unnecessary special personal information, information about children, health information, sexual assault details, victim identities, suspect identities or other sensitive information. Where sensitive categories are unavoidable, SafeNote may restrict, redact, aggregate or hide the information.</p>
+
+<h2>6. Access Control</h2>
+<p>Public views are restricted and may be delayed or aggregated. NHW/CPF access is controlled by access codes. Admin functions are restricted by an administrator secret.</p>
+
+<h2>7. Security Safeguards</h2>
+<p>SafeNote aims to apply reasonable technical and organisational controls, including restricted access, server-side admin routes, token controls, rate-limiting, hashed IP data for abuse prevention and separation between public and restricted data layers.</p>
+
+<h2>8. Operator Responsibilities</h2>
+<p>SafeNote administrators should maintain secure secrets, revoke unused access codes, review reports for privacy risk, avoid unnecessary exports and ensure that community structures understand acceptable use obligations.</p>
+
+<h2>9. Data Subject Rights</h2>
+<p>Where POPIA applies and identification is possible, data subjects may have rights to request access, correction or deletion of personal information. Because SafeNote is designed around anonymous reporting, identifying a specific report may require sufficient supporting information.</p>
+
+<h2>10. Legal Review</h2>
+<p>Before full public rollout, SafeNote should obtain legal review of its POPIA compliance, terms, privacy policy, retention schedule, security measures and operational procedures.</p>
+
+<div class="footer">
+  SafeNote South Africa · Working legal documents · Contact details to be updated once official domain email is active.
+</div>
+</main>
+</body>
+</html>
