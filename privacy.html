@@ -3,58 +3,88 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SafeNote Privacy Principles</title>
+<title>Privacy Policy — SafeNote</title>
+<meta name="description" content="How SafeNote is designed to collect, process and protect limited incident information." />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#081008;color:#eef5ef;font-family:'DM Sans',sans-serif;line-height:1.75}
-main{width:min(880px,92%);margin:0 auto;padding:70px 0}
-a{color:#7dab8a}
-h1,h2{font-family:'Playfair Display',serif;line-height:1.1}
-h1{font-size:56px;margin:0 0 18px}h2{font-size:30px;margin-top:44px}
-p,li{color:#b8c9bb;font-size:16px}
-.card{border:1px solid rgba(125,171,138,.22);background:#111d10;border-radius:20px;padding:24px;margin:22px 0}
-code{color:#7dab8a}
+:root{--bg:#081008;--panel:#111d10;--line:rgba(125,171,138,.22);--text:#eef5ef;--muted:#b8c9bb;--green:#7dab8a;--red:#f07070;--gold:#d4a832}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.75}
+main{width:min(940px,92%);margin:0 auto;padding:54px 0 80px}
+a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}
+.back{font:700 12px 'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase}
+h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.1}h1{font-size:clamp(42px,6vw,68px);margin:22px 0 12px}h2{font-size:32px;margin:42px 0 14px}h3{font-size:23px;margin:28px 0 10px}
+p,li{color:var(--muted);font-size:16px}strong{color:var(--text)}ul{padding-left:24px}
+.notice{border:1px solid rgba(212,168,50,.35);background:rgba(212,168,50,.07);border-radius:18px;padding:18px 20px;margin:22px 0;color:#e8d6a0}
+.danger{border-color:rgba(240,112,112,.35);background:rgba(240,112,112,.06)}
+.card{border:1px solid var(--line);background:var(--panel);border-radius:20px;padding:24px;margin:20px 0}
+.code{font:600 13px 'DM Mono',monospace;color:var(--green)}
+.footer{border-top:1px solid var(--line);margin-top:50px;padding-top:20px;color:#77907c;font-size:13px}
 </style>
 </head>
 <body>
 <main>
-<a href="/">← Back to SafeNote</a>
-<h1>Privacy Principles</h1>
-<p>SafeNote is designed as a community awareness platform. The goal is to minimise unnecessary personal information while allowing communities to understand local incident trends.</p>
+<a class="back" href="/">← Back to SafeNote</a>
+<h1>Privacy Policy</h1>
+<p>How SafeNote is designed to collect, process and protect limited incident information.</p>
+<div class="notice"><strong>Important:</strong> These documents are operational legal templates for the SafeNote platform and should be reviewed by a South African legal professional before full public rollout.</div>
 
-<div class="card">
-<strong>Important:</strong> This page is a working privacy principles page, not final legal advice. Before public launch, SafeNote should have a POPIA-reviewed Privacy Policy and Terms of Use.
-</div>
+<h2>1. Purpose of this Policy</h2>
+<p>This Privacy Policy explains how SafeNote is designed to collect, process, store and use information submitted through the SafeNote website, public reporting map, NHW/CPF portal and admin systems.</p>
 
-<h2>What SafeNote is designed to collect</h2>
+<h2>2. What SafeNote Is</h2>
+<p>SafeNote is a community awareness and incident logging platform. It is not a law enforcement agency, emergency service, private security company, armed response provider, dispatch centre, investigation unit or official SAPS reporting channel.</p>
+
+<h2>3. Information Collected Through Public Reports</h2>
+<p>Public incident reports may capture:</p>
 <ul>
 <li>Incident type</li>
-<li>Severity</li>
-<li>Approximate location or GPS coordinates</li>
+<li>Severity level</li>
+<li>GPS coordinates or mapped location</li>
 <li>Timestamp</li>
-<li>Optional short note</li>
+<li>Optional short note entered by the reporter</li>
+<li>Technical anti-abuse data, such as hashed IP data for rate-limiting and abuse prevention</li>
 </ul>
 
-<h2>What public reports should not require</h2>
+<h2>4. Information SafeNote Does Not Intend to Collect for Public Reports</h2>
 <ul>
 <li>Names</li>
+<li>ID numbers</li>
 <li>Phone numbers</li>
 <li>Email addresses</li>
-<li>ID numbers</li>
 <li>Public user profiles</li>
+<li>Reporter identity displayed to the public</li>
 </ul>
 
-<h2>Public map delay</h2>
-<p>The public map is designed to show delayed information for community awareness. Real-time access is reserved for verified NHW/CPF structures.</p>
+<h2>5. Optional Notes and Personal Information</h2>
+<p>Users must not submit names, phone numbers, home addresses, ID numbers, vehicle registration details linked to private persons, defamatory accusations, threats or personal details of victims, suspects, witnesses, children or vulnerable persons unless legally necessary and specifically requested by authorised structures.</p>
 
-<h2>NHW / CPF access</h2>
-<p>Verified community structures may receive access to additional dashboards, live feeds and analytics for planning and reporting purposes.</p>
+<h2>6. Location Data</h2>
+<p>Location data is used to map incidents, identify patterns and support community awareness. Public views may be delayed, rounded, aggregated or limited for safety, privacy and abuse-prevention purposes. Verified NHW/CPF and admin views may access more detailed internal data for legitimate community safety planning.</p>
 
-<h2>Emergency disclaimer</h2>
-<p>SafeNote is not an emergency response service. For emergencies, users must contact SAPS, medical emergency services, fire services, armed response providers or other official channels.</p>
+<h2>7. NHW / CPF Access</h2>
+<p>Verified community structures may receive access codes to view additional dashboards, heatmaps, statistics, exports and operational summaries. Access may be revoked at any time if misused.</p>
 
-<h2>Contact</h2>
-<p>Email: <a href="mailto:hello@safenote.co.za">hello@safenote.co.za</a></p>
+<h2>8. Use of Information</h2>
+<p>SafeNote information may be used to support community awareness, hotspot analysis, trend reporting, community safety planning, NHW/CPF briefings, internal moderation, abuse prevention and anonymised or aggregated exports.</p>
+
+<h2>9. Storage and Security</h2>
+<p>SafeNote uses reasonable technical and organisational measures to protect platform information. No internet-connected system can be guaranteed fully secure. Users must avoid submitting unnecessary personal or sensitive information.</p>
+
+<h2>10. POPIA Alignment</h2>
+<p>SafeNote is designed around principles of minimal collection, purpose limitation, restricted access, privacy-aware reporting and responsible processing. POPIA promotes the protection of personal information processed by public and private bodies and establishes minimum requirements for lawful processing.</p>
+
+<h2>11. Data Retention</h2>
+<p>SafeNote may retain reports for operational, statistical, moderation, audit, abuse-prevention and community reporting purposes. Test data may be cleared by administrators. Formal retention periods should be confirmed before full public rollout.</p>
+
+<h2>12. Data Subject Requests</h2>
+<p>Where applicable and technically possible, individuals may request access, correction or deletion of personal information associated with them. Because public reports are intended to be anonymous and minimal, SafeNote may not always be able to identify a specific reporter or report without supporting details.</p>
+
+<h2>13. Contact</h2>
+<p>Official contact details will be added once the SafeNote domain email and Google Workspace account are active.</p>
+
+<div class="footer">
+  SafeNote South Africa · Working legal documents · Contact details to be updated once official domain email is active.
+</div>
 </main>
 </body>
 </html>
